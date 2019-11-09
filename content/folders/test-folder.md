@@ -1,5 +1,5 @@
 ---
-id: "0"
+id: "test-folder"
 title: test-folder
 date: 2019-01-07
 published: true

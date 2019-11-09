@@ -9,9 +9,9 @@ module.exports = {
   siteDescription: 'A simple, hackable & minimalistic starter for Gridsome that uses Markdown for content.',
 
   templates: {
-    Post: '/:title',
+    Post: '/:folder/:title',
     Tag: '/tag/:id',
-    Folder: '/folder/:title'
+    Folder: '/:id'
   },
 
   plugins: [
