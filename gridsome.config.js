@@ -10,10 +10,19 @@ module.exports = {
 
   templates: {
     Post: '/:title',
-    Tag: '/tag/:id'
+    Tag: '/tag/:id',
+    Folder: '/folder/:title'
   },
 
   plugins: [
+    {
+      // Create posts from markdown files
+      use: '@gridsome/source-filesystem',
+      options: {
+        typeName: 'Folder',
+        path: 'content/folders/*.md',
+      }
+    },
     {
       // Create posts from markdown files
       use: '@gridsome/source-filesystem',
@@ -22,6 +31,9 @@ module.exports = {
         path: 'content/posts/*.md',
         refs: {
           // Creates a GraphQL collection from 'tags' in front-matter and adds a reference.
+          folder: {
+            typeName: 'Folder',
+          },
           tags: {
             typeName: 'Tag',
             create: true
